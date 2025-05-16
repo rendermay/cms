@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "Tag",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "customField",
+      "required": true,
+      "options": {
+        "pattern": "name"
+      },
+      "customField": "plugin::auto-locales-slug.auto-locales-slug"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

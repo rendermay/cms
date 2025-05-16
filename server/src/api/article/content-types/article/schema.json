@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "excerpt": {
+      "type": "text",
+      "required": true
+    },
+    "slug": {
+      "type": "customField",
+      "required": true,
+      "options": {
+        "pattern": "title"
+      },
+      "customField": "plugin::auto-locales-slug.auto-locales-slug"
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDgzOTAzOTksImp0aSI6ImZlM2ZmYmMwLWRiODktNGRhZC1hN2ZkLTgxMTljZjdkMTRhYSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImFmZTM2YzI4In0.fs8j4DQBOTEQByWwEYRjdqiukidaI0RrtUrLW2UZZaflMMteYfMYZ0cmMqynX31Hsx1z2Z_gcRRhppg0xLGwyA",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "view_count": {
+      "type": "integer",
+      "default": 1
+    },
+    "comment_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "push_date": {
+      "type": "date"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "articles"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "tag": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tag.tag"
+    }
+  }
+}
